@@ -1,0 +1,30 @@
+.fondo{	
+	background-image: url("../img/food-menu-min.jpg");	
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-position: center;
+}
+
+.fondogradiente{
+	background: linear-gradient(to bottom right, rgba(192, 107, 62, 0.7), rgba(33, 139, 185, 0.7)); 
+}
+
+div.error{
+    position: relative;
+    top: -1rem;
+    left: 0rem;
+    font-size: 0.8rem;
+    color:#FF4081;
+} 
+
+.contenido{
+	min-height: 760px;
+}
+
+.cont{
+	padding: 0 20px 1px 20px;
+	background-color: white;
+	border-radius: 5px;
+}
