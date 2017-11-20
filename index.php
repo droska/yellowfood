@@ -62,6 +62,7 @@
       <div class="row">
         <div class="col s12 m4">
           <h5 class="yellow-text">© 2017 YellowFood</h5>
+          <h6>Todos los derechos reservados.</h6>
           <p class="yellow-text text-lighten-5"></p>
         </div>
         <div class="col s12 m4">
