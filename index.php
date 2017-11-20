@@ -49,7 +49,7 @@
       ?>
       <div class="container">	
       <?php 
-      echo '<div class="card darken-1"><div class="card-content"><a class="card-title" href="/prueba/profile.php?restaurante='.$row['nombre'].'">'.$row['nombre'].'</a><br>';
+      echo '<div class="card darken-1"><div class="card-content"><a class="card-title" href="profile.php?restaurante='.$row['nombre'].'">'.$row['nombre'].'</a><br>';
       echo $row['descripcion'].'<p><p></div></div>';
       ?>
     </div>
