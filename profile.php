@@ -30,7 +30,7 @@
 					<a href="#" data-activates="mobile-demo" class="button-collapse yellow-text"><i class="material-icons">menu</i></a>
 					<ul class="right hide-on-med-and-down">
 					<?php if ($band == 1){
-					echo '<li><a href="/prueba/platos.php?user='.$usuario.'" class="yellow-text">Añadir Platos</a></li>';
+					echo '<li><a href="platos.php?user='.$usuario.'" class="yellow-text">Añadir Platos</a></li>';
 					?>
 					<li><a href="index.php" class="yellow-text">Cerrar Sesión</a></li>
 					<?php }else{

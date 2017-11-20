@@ -64,6 +64,16 @@ if ($con->connect_error) {
       		</div>
     		</div>       
     		<div class="row">
+          <div class="file-field input-field">
+            <div class="btn">
+              <span>Fotografía del plato</span>
+              <input type="file">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text">
+            </div>
+          </div>
+        </div>
       		<div class="input-field col s12">
         		<select name="pcat" id="pcat" required>
         		<option value="">Categoría</option>
@@ -75,6 +85,7 @@ if ($con->connect_error) {
         		</select>
       		</div>
     		</div>
+        <br>
     		<div class="row center">
       		<div class="boton">
       		  <button class="btn">Confirmar</button>
