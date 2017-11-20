@@ -8,13 +8,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <script src="js/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="js/materialize.min.js"></script>
-  <script type="text/javascript" src="js/jquery.validate.min.js"></script>
-  <script type="text/javascript" src="js/validation.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAF2-ozzHTCK6Snz8KqJ-RSPhmdInZdLjI&libraries=places&callback=initAutocomplete" async defer></script>
-  <script src="js/maps.js"></script>
-  <script src="js/init.js"></script>
+
 </head>
 
 <body>
@@ -79,14 +73,22 @@
           </div>
         </div>
         <div class="row">
-          <div class="input-field col s12 m6">
+          <div class="input-field col s12 m12">
           <input name="ubicacion" id="ubicacion" type="text" class="validate" onFocus="geolocate()">
           <label for="ubicacion">Ubicación</label>
           </div>  
-          <div class="input-field col s12 m6">
-          <input name="horario" id="horario" type="text" class="validate">
-          <label for="horario">Horario</label>
-          </div> 
+          
+          <div class="row">
+            <div class="input-field col m6">
+                <input type="text" class="timepicker"> 
+                <label for="horario">Horario Desde</label>
+            </div>
+            <div class="input-field col m6">
+              <input type="text" class="timepicker"> 
+              <label for="horario">Horario Hasta</label>
+            </div>
+          </div>
+     
         </div>
         <div class="row">
           <div class="input-field col s12">
@@ -146,5 +148,12 @@
   </footer>
   </div>
   </div>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="js/validation.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAF2-ozzHTCK6Snz8KqJ-RSPhmdInZdLjI&libraries=places&callback=initAutocomplete" async defer></script>
+  <script src="js/maps.js"></script>
+  <script src="js/init.js"></script>
 </body>
 </html>
