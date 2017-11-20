@@ -29,6 +29,7 @@ if ($con->connect_error) {
   $usern = $_GET['user'];
   $get=mysqli_query($con,"SELECT nombre FROM categoria_plato");  
 ?>  
+  
   <div class="fondo">
   <div class="fondogradiente">
   <div class="contenido">
@@ -45,8 +46,8 @@ if ($con->connect_error) {
       </nav>
     </div>  
     <div class="container cont">
-      <h1 class="yellow-text center">Añadir plato</h1>
-  		<?php echo '<form action="/prueba/crear_plato.php?user='.$usern.'" method="post" id="plato" name="plato">'; ?>
+      <h1 class="yellow-text center">Añadir Plato</h1>
+  		<?php echo '<form action="crear_plato.php?user='.$usern.'" method="post" id="plato" name="plato">'; ?>
     		<div class="row">
       		<div class="input-field col s12 m6">
         		<input name="pname" id="pname" type="text" class="validate">
@@ -70,7 +71,7 @@ if ($con->connect_error) {
               <input type="file">
             </div>
             <div class="file-path-wrapper">
-              <input class="file-path validate" type="text">
+              <input class="file-path validate" type="text" multiple multiple onchange="ruta()" name="pimg" id="pimg">
             </div>
           </div>
         </div>

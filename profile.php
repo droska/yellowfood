@@ -95,10 +95,11 @@
 							$var_cat = $rowb['cat_nom'];
 							$menu = mysqli_query($con,
 							"SELECT 
-							restaurante.nombre      	     AS 'Restaurante',
+							restaurante.nombre      	   AS 'Restaurante',
 							restaurante_plato.nombre       AS 'Plato', 
 							restaurante_plato.descripcion  AS 'Descripcion',
-							restaurante_plato.precio       AS 'Precio', 
+							restaurante_plato.precio       AS 'Precio',
+							restaurante_plato.foto 		   AS 'foto', 
 							categoria_plato.nombre         AS 'Categoria'
 							FROM  restaurante_plato 
 							JOIN  restaurante
@@ -107,7 +108,11 @@
 							ON    restaurante_plato.categoria_plato_id = categoria_plato.id
 							WHERE restaurante.nombre = '$nombre' AND categoria_plato.nombre = '$var_cat'");
 							while ($rowc = mysqli_fetch_assoc($menu)) {
-							echo $rowc['Plato'].'<br>'.$rowc['Descripcion'].'<br>'.$rowc['Precio'].'<br><br>';
+
+							echo $rowc['Plato'].'<br>';
+							echo $rowc['Descripcion'].'<br>';
+							echo $rowc['Precio'].'<br>';
+							echo '<img class="img_plato" src="'.$rowc['foto'].'" alt="">';
 						}
 					}
 				?>

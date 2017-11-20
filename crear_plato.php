@@ -10,6 +10,12 @@
   $pcat = $_POST['pcat'];
   $band = 1;
 
+  $imagenplato = $_POST['pimg'];
+  $rutai = 'img/';
+  $ruta = "".$rutai.$imagenplato;
+
+  //echo '<img src="'.$ruta.'" alt="">';
+
   if(!preg_match('`^[A-Za-z0-9 ]*$`', $pnombre)){
     $band = 0;     
   }
@@ -38,12 +44,12 @@
     while($row = mysqli_fetch_assoc($get)){
       $rowuser = $row['id'];  
     }
-    $sql = "INSERT INTO restaurante_plato (nombre, descripcion, precio, restaurante_id, categoria_plato_id) 
-    VALUES ('$pnombre', '$pdesc', '$precio', '$rowuser', '$rowcat')";
+    $sql = "INSERT INTO restaurante_plato (nombre, descripcion, precio, foto, restaurante_id, categoria_plato_id) 
+    VALUES ('$pnombre', '$pdesc', '$precio', '$ruta', '$rowuser', '$rowcat')";
     if(mysqli_query($con, $sql)){
       echo 
       '<script type="text/javascript">
-      window.location = "platos.php?user='.$user.'"
+        window.location = "platos.php?user='.$user.'"
       </script>';
     }else{
       echo 
