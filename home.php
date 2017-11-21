@@ -21,7 +21,10 @@
         <div class="nav-wrapper">
           <a href="index.php" class="brand-logo yellow-text">YellowFood</a>
           <a href="#" data-activates="mobile-demo" class="button-collapse yellow-text"><i class="material-icons">menu</i></a>
-         
+          <ul class="right hide-on-med-and-down">
+            <li><a href="register.php" class="yellow-text">Registro</a></li>
+            <li><a href="login.php" class="yellow-text">Iniciar Sesion</a></li>
+          </ul>
         </div>
       </nav>
     </div>
@@ -38,33 +41,21 @@
   $get=mysqli_query($con,"SELECT nombre, descripcion FROM restaurante"); 
   } 
   ?> 
- 
- 
-    <div class="row">
-        <div class="col cuadrito1">
-           <div class="row a">
-                <div class="titulod1">
-                <label class="t1">Eres  Restaurante y quieres darte a conocer?</label>
-                <a href="register.php" class="yellow-text">Regístrate</a>
-                </div>
-           </div>
-          
-           <div class="row">
-                <div class="titulod2">
-                <label class="t2">Ya estas Registrado?</label>
-                <a href="login.php" class="yellow-text">Inicia Sesión</a>
-                </div>
-           </div>
-        </div>
-
-        <div class="col cuadrito2">
-                 <div class="titulod3">
-                 <label class="t3">Eres Cliente? Observa los restaurantes de tu preferencia!</label>
-                 <a href="index.php" class="yellow-text">Ver Restaurantes</a>
-                 </div>
-        </div>
-   </div>
-
+  <div class="container">
+    <h1 class="yellow-text center">Restaurantes</h1>
+    <div class="col s12 m8">
+      <?php 
+      while($row = mysqli_fetch_assoc($get)){	
+      ?>
+      <div class="container">	
+      <?php 
+      echo '<div class="card darken-1"><div class="card-content"><a class="card-title" href="profile.php?restaurante='.$row['nombre'].'">'.$row['nombre'].'</a><br>';
+      echo $row['descripcion'].'<p><p></div></div>';
+      ?>
+    </div>
+    <?php } ?>
+    </div>
+  </div>
   </div>
   <footer class="page-footer">
     <div class="container">
