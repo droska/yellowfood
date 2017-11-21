@@ -29,6 +29,24 @@ if ($con->connect_error) {
   $usern = $_GET['user'];
   $get=mysqli_query($con,"SELECT nombre FROM categoria_plato");  
 ?>  
+<?php
+session_start();
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+  $band=1;
+  $user = $_SESSION['username'];
+} else {
+   echo "Esta pagina es solo para usuarios registrados.<br>";
+   echo "<br><a href='login.php'>Login</a>";
+   echo "<br><br><a href='register.php'>Registrarme</a>";
+exit;
+}
+$now = time();
+if($now > $_SESSION['expire']) {
+session_destroy();
+echo "Su sesion a terminado";
+exit;
+}
+?>
   
   <div class="fondo">
   <div class="fondogradiente">
@@ -39,8 +57,9 @@ if ($con->connect_error) {
           <a href="index.php" class="brand-logo yellow-text">YellowFood</a>
           <a href="#" data-activates="mobile-demo" class="button-collapse yellow-text"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="register.php" class="yellow-text">Registro</a></li>
-            <li><a href="login.php" class="yellow-text">Iniciar Sesion</a></li>
+            <?php if ($band == 1){
+            echo '<li><a href="profile.php?restaurante='.$usern.'&user='.$user.'" class="yellow-text">'.$usern.'</a></li><li><img src="img/coca.jpg" alt="" class="circle mini"></li>';
+            }?>
           </ul>
         </div>
       </nav>
@@ -57,15 +76,9 @@ if ($con->connect_error) {
             <input name="precio" id="precio" type="text" class="validate">
             <label for="precio">Precio</label>
           </div>
-    		</div>
-    		<div class="row">
-      		<div class="input-field col s12">
-        		<input name="pdesc" id="pdesc" type="text" class="validate">
-        		<label for="pdesc">Descripción</label>
-      		</div>
     		</div>       
     		<div class="row">
-          <div class="file-field input-field">
+          <div class="file-field input-field col s12 m6">
             <div class="btn">
               <span>Fotografía del plato</span>
               <input type="file">
@@ -74,19 +87,24 @@ if ($con->connect_error) {
               <input class="file-path validate" type="text" multiple multiple onchange="ruta()" name="pimg" id="pimg">
             </div>
           </div>
+          <div class="input-field col s12 m6">
+            <select name="pcat" id="pcat" required>
+            <option value="">Categoría</option>
+              <?php
+              while($row = mysqli_fetch_assoc($get)){
+                echo '<option value="'.$row['nombre'].'">'.$row['nombre'].'</option>';
+              } 
+              ?> 
+            </select>
+          </div>
         </div>
-      		<div class="input-field col s12">
-        		<select name="pcat" id="pcat" required>
-        		<option value="">Categoría</option>
-          		<?php
-          		while($row = mysqli_fetch_assoc($get)){
-          		  echo '<option value="'.$row['nombre'].'">'.$row['nombre'].'</option>';
-          		} 
-          		?> 
-        		</select>
-      		</div>
-    		</div>
-        <br>
+        <div class="row">
+          <div class="input-field col s12">
+            <input name="pdesc" id="pdesc" type="text" class="validate">
+            <label for="pdesc">Descripción</label>
+          </div>
+        </div>
+      		
     		<div class="row center">
       		<div class="boton">
       		  <button class="btn">Confirmar</button>
