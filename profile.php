@@ -79,7 +79,6 @@ exit;
 				</div>
 			</nav>
 		</div>
-		<br><br>
 		<div class="container cont">
 			<?php
 			$nombre = $_GET['restaurante'];
