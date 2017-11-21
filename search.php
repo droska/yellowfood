@@ -34,13 +34,22 @@
     $password = "";
     $dbname = "yellowfood";
     $con = new mysqli($servername, $username, $password, $dbname);
-    
+    $categoria = $_GET['categoria'];
+
     if ($con->connect_error) {
       die("Connection failed: " . $con->connect_error);
     }else{
-      $get=mysqli_query($con,"SELECT nombre, descripcion FROM restaurante"); 
+     
       $getcat=mysqli_query($con,"SELECT categoria FROM Categoria");  
-    }
+      $getCATp=mysqli_query($con,"SELECT id FROM Categoria WHERE categoria = '".$categoria."'");
+        while($row = mysqli_fetch_assoc($getCATp)){
+          $catid = $row['id'];
+          echo $catid;
+        }
+      $get=mysqli_query($con,"SELECT nombre, descripcion 
+                              FROM restaurante 
+                              WHERE categoria_id ='.$catid.'");    
+      }
   ?>
 
   <div class="container">
@@ -76,7 +85,8 @@
       ?>
       <div class="container">	
       <?php 
-      echo '<div class="card darken-1"><div class="card-content"><a class="card-title" href="profile.php?restaurante='.$row['nombre'].'">'.$row['nombre'].'</a><br>';
+      echo '
+      <div class="card darken-1"><div class="card-content"><a class="card-title" href="profile.php?restaurante='.$row['nombre'].'">'.$row['nombre'].'</a><br>';
       echo $row['descripcion'].'<p><p></div></div>';
       ?>
     </div>
