@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <?php 
 	$userin = $_POST['username'];
 	$passin = $_POST['password'];
@@ -35,7 +38,13 @@
 			</script>';
 		}
 		if($band == 1){
+			$_SESSION['loggedin'] = true;
+			$_SESSION['username'] = $userin;
+			$_SESSION['start'] = time();
+			$_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
+			echo "Bienvenido! " . $_SESSION['username'];
 			header("Location: profile.php?restaurante=$restname&user=$userin");
 		}
 	}
+	mysqli_close($con); 
 ?>

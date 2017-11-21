@@ -11,13 +11,41 @@
 
 
 </head>
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "yellowfood";
+$con = new mysqli($servername, $username, $password, $dbname);
+if ($con->connect_error) {
+die("Connection failed: " . $con->connect_error);
+}else{
+$get=mysqli_query($con,"SELECT nombre, descripcion FROM restaurante"); 
+} 
+?>
 
-	<?php 
-	$band = 0;
-	if (@$_GET['user']){
-	$band = 1;
-	$usuario = $_GET['user'];
-	} ?>
+<?php
+
+session_start();
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+	$band=1;
+}else{
+	$band=0;
+}/*else {
+   echo "Esta pagina es solo para usuarios registrados.<br>";
+   echo "<br><a href='login.php'>Login</a>";
+   echo "<br><br><a href='register.php'>Registrarme</a>";
+exit;
+}
+$now = time();
+if($now > $_SESSION['expire']) {
+session_destroy();
+echo "Su sesion a terminado";
+exit;
+} */
+
+?>
+
 	<body>
 
 	<div id="fb-root"></div>
@@ -38,9 +66,13 @@
 					<a href="#" data-activates="mobile-demo" class="button-collapse yellow-text"><i class="material-icons">menu</i></a>
 					<ul class="right hide-on-med-and-down">
 					<?php if ($band == 1){
-					echo '<li><a href="platos.php?user='.$usuario.'" class="yellow-text">Añadir Platos</a></li>';
-					?>
-					<li><a href="index.php" class="yellow-text">Cerrar Sesión</a></li>
+					$nombre = $_GET['restaurante'];
+					echo '
+					<li><a href="platos.php?user='.$nombre.'" class="yellow-text">Añadir Platos</a></li>
+					<li><a class="yellow-text">'.$nombre.'</a></li>
+					<li><a href="index.php?close=1" class="yellow-text">Cerrar Sesión</a></li>
+					<li><img src="img/coca.jpg" alt="" class="circle mini"></li>';
+				    ?>
 					<?php }else{
 					echo '<li><a href="register.php" class="yellow-text">Registro</a></li>';
 					}?>
@@ -51,22 +83,13 @@
 		<br><br>
 		<div class="container cont">
 			<?php
-			$servername = "localhost";
-			$username = "root";
-			$password = "";
-			$dbname = "yellowfood";
-			$con = new mysqli($servername, $username, $password, $dbname);
-			if ($con->connect_error) {
-				die("Connection failed: " . $con->connect_error);
-			}else{
-				$nombre = $_GET['restaurante'];
-				$get=mysqli_query($con,"SELECT * FROM restaurante WHERE nombre = '".$nombre."' ");  
-				while($row = mysqli_fetch_assoc($get)){
-					$slogan    = $row['descripcion'];  
-					$direccion = $row['ubicacion'];
-					$horario = $row['horario'];
-				}
-			} 
+			$nombre = $_GET['restaurante'];
+			$get=mysqli_query($con,"SELECT * FROM restaurante WHERE nombre = '".$nombre."' ");  
+			while($row = mysqli_fetch_assoc($get)){
+				$slogan    = $row['descripcion'];  
+				$direccion = $row['ubicacion'];
+				$horario = $row['horario'];
+			}
 			?> 
 			<div class="row">
 				<div class="col s12 jumbo">
