@@ -56,7 +56,7 @@
 
     <div class="container cont">
       <h1 class="yellow-text center">EDITAR PERFIL</h1>
-      <form action="insert.php" method="post" id="registro" name="registro">
+      <form action="actualizar_perfil.php" method="post" id="registro" name="registro">
         <div class="row">
           
           <div class="input-field col s12 m6">
@@ -105,14 +105,9 @@
 
         <div class="row">
          
-          <div class="input-field col s12 m4"> 
-              <label for="horarioa">Horario Desde</label>
-              <?php echo '<input type="text" value="'.$horario.'">';?>
-           </div>
-          
           <div class="input-field col s12 m4">
-            <label for="horariob">Horario Hasta</label>
-            <?php echo '<input type="text" value="'.$horario.'">';?>
+            <label for="horariob">Horario</label>
+            <?php echo '<input name="horario" type="text" value="'.$horario.'">';?>
           </div>
          
           <div class="input-field col s12 m4">

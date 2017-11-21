@@ -12,11 +12,8 @@
   $rif = $_POST["rif"]; 
   $rif1 = substr($rif, 2, 11);
   $ubicacion = $_POST["ubicacion"];
-  $horarioa= $_POST["horarioa"];
-  $horariob= $_POST["horariob"];
-  $horario = $horarioa."-".$horariob;
+  $horario= $_POST["horario"];
   $band = 1;
-
 
    $getCATp=mysqli_query($con,"SELECT id FROM Categoria WHERE categoria = '".$categoria."'");
         while($row = mysqli_fetch_assoc($getCATp)){
@@ -24,7 +21,9 @@
           echo $catid;
         }
 
+  echo $username.' '.$password.' '.$email.' '.$restname.' '.$restdesc.' '.$rif1.' '.$ubicacion.' '.$horario;
 
+/*
   if((strlen($username)< 2) || (strlen($username)>16)){
     $band = 0;
         echo '<script type="text/javascript">
@@ -114,7 +113,7 @@
         echo '<script type="text/javascript">
       alert("fallo1");
       </script>';
-  }
+  }*/
 
   /*if ($band == 1) {
     $get=mysqli_query($con,"SELECT id FROM categoria WHERE categoria = '".$categoria."' ");  
@@ -136,4 +135,4 @@
     } 
   }
   mysqli_close($con);
-}?>*/
+*/}?>

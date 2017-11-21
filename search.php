@@ -44,7 +44,6 @@
       $getCATp=mysqli_query($con,"SELECT id FROM Categoria WHERE categoria = '".$categoria."'");
         while($row = mysqli_fetch_assoc($getCATp)){
           $catid = $row['id'];
-          echo $catid;
         }
       $get=mysqli_query($con,"SELECT nombre, descripcion 
                               FROM restaurante 
