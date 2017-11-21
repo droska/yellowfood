@@ -77,18 +77,26 @@
           <input name="ubicacion" id="ubicacion" type="text" class="validate" onFocus="geolocate()">
           <label for="ubicacion">Ubicación</label>
           </div>  
-          
-          <div class="row">
-            <div class="input-field col m6">
-                <input type="text" class="timepicker"> 
-                <label for="horario">Horario Desde</label>
-            </div>
-            <div class="input-field col m6">
-              <input type="text" class="timepicker"> 
-              <label for="horario">Horario Hasta</label>
-            </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 m4">
+              <input name="horarioa" id="horarioa" type="text" class="validate timepicker"> 
+              <label for="horarioa">Horario Desde</label>
           </div>
-     
+          <div class="input-field col s12 m4">
+            <input name="horariob" id="horariob" type="text" class="validate timepicker"> 
+            <label for="horariob">Horario Hasta</label>
+          </div>
+          <div class="input-field col s12 m4">
+          <select name="categoria" id="categoria">
+            <option value="">Categoria</option>
+            <?php 
+              while($row = mysqli_fetch_assoc($get)){
+                echo '<option value="'.$row['categoria'].'">'.$row['categoria'].'</option>';  
+              } 
+            ?> 
+          </select>
+          </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
@@ -96,18 +104,6 @@
           <label for="restdesc">Descripción</label>
           </div>
         </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <select name="categoria" id="categoria" class="icons" required>
-              <option value="">Categoria</option>
-              <?php 
-                while($row = mysqli_fetch_assoc($get)){
-                  echo '<option value="'.$row['categoria'].'">'.$row['categoria'].'</option>';  
-                } 
-              ?> 
-            </select>
-          </div>
-        </div> 
         <div class="row center">
           <div class="boton">
           <button class="btn">Confirmar</button>

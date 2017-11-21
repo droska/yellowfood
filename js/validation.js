@@ -36,6 +36,10 @@ $.validator.addMethod("descripcion", function(value) {
        && /[a-z]/.test(value)
 });
 
+$.validator.addMethod("horario", function(value) {
+   return /^[0-9]*[:][0-9]*['PM''AM']*$/.test(value)
+});
+
 $(function() {
   $("#registro").validate({
     rules: {
@@ -52,6 +56,7 @@ $(function() {
         pwcheck: true
       },
       password2:{
+        required: true,
         equalTo: "#password"
       },
       email:{
@@ -82,8 +87,13 @@ $(function() {
         maxlength: 100,
         descripcion: true
       },
-      horario:{
-        required: true
+      horarioa:{
+        required: true,
+        horario: true
+      },
+      horariob:{
+        required: true,
+        horario: true
       }
     },
     messages: {
@@ -100,6 +110,7 @@ $(function() {
         pwcheck: "La contraseña debe tener al menos una letra mayuscula, una minuscula, un numero y un caracter especial (-@._*)"
       },
       password2:{
+        required: "Debe introducir la contraseña",
         equalTo: "Las contraseñas deben coincidir"
       },
       email:{
@@ -130,8 +141,13 @@ $(function() {
         maxlength: "Debe tener menos de 100 caracteres",
         descripcion: "La ubicacion solo puede estar compuesta por letras, numeros, comas, puntos y guiones"
       },
-      horario:{
-        required: "Debe introducir un horario"
+      horarioa:{
+        required: "Debe introducir un horario de entrada",
+        horario: "Debe introducir solo numeros"
+      },
+      horariob:{
+        required: "Debe introducir un horario de salida",
+        horario: "Debe introducir solo numeros"
       }
     },
     errorElement : 'div',
