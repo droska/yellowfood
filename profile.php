@@ -69,6 +69,7 @@ exit;
 					$nombre = $_GET['restaurante'];
 					echo '
 					<li><a href="editar_perfil.php?user='.$nombre.'" class="yellow-text">Editar Perfil</a></li>
+					<li><a href="editar_plato.php?user='.$nombre.'" class="yellow-text">Editar Platos</a></li>
 					<li><a href="platos.php?user='.$nombre.'" class="yellow-text">Añadir Platos</a></li>
 					<li><a class="yellow-text">'.$nombre.'</a></li>
 					<li><a href="index.php?close=1" class="yellow-text">Cerrar Sesión</a></li>

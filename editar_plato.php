@@ -43,7 +43,7 @@ exit;
 $now = time();
 if($now > $_SESSION['expire']) {
 session_destroy();
-echo "Su sesion a terminado";
+echo "Su sesión ha terminado";
 exit;
 }
 ?>
@@ -59,21 +59,20 @@ exit;
           <ul class="right hide-on-med-and-down">
             <?php if ($band == 1){
             echo '
-            <li><a href="editar_plato.php?restaurante='.$user.'&user='.$usern.'" class="yellow-text">Editar Platos</a></li>
-            <li><a href="profile.php?restaurante='.$usern.'&user='.$user.'" class="yellow-text">'.$usern.'</a></li>
-            <li><img src="img/coca.jpg" alt="" class="circle mini"></li>';
+            <li><a href="profile.php?restaurante='.$usern.'&user='.$user.'" class="yellow-text">'.$user.'</a></li><li><img src="img/coca.jpg" alt="" class="circle mini"></li>';
             }?>
           </ul>
         </div>
       </nav>
-    </div>  
+    </div>
     <div class="container cont">
-      <h1 class="yellow-text center">Añadir Plato</h1>
+      <h1 class="yellow-text center">Editar Platos</h1>
   		<?php echo '<form action="crear_plato.php?user='.$usern.'" method="post" id="plato" name="plato">'; ?>
     		<div class="row">
       		<div class="input-field col s12 m6">
         		<input name="pname" id="pname" type="text" class="validate">
-        		<label for="pname">Nombre</label>
+            <label for="pname">Nombre</label>
+              
       		</div>
           <div class="input-field col s12 m6">
             <input name="precio" id="precio" type="text" class="validate">
@@ -110,7 +109,7 @@ exit;
       		
     		<div class="row center">
       		<div class="boton">
-      		  <button class="btn">Confirmar</button>
+      		  <button class="btn">Editar</button>
       		</div>
     		</div>  
   		</form>              
