@@ -76,14 +76,22 @@ div.error{
 	margin-left: 65px;
 	margin-left: 60px;
 }
-
 .BotonVerRestaurantes{
 	margin-top: 30px;
 	margin-left: 100px;
 }
-
 .mini{
 	height: 40px;
 	width: 40px;
 	margin-top: 10px;
+}
+.busca{
+	width: 100%;
+	margin-left: 0 !important;
+}
+.buscar-cat{
+	background-color: rgba(255,255,255);
+}
+.boton-busca{
+	margin-top: 15%;
 }

@@ -13,16 +13,16 @@
 
 <body>
   <?php
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "yellowfood";
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "yellowfood";
 
-  $con = new mysqli($servername, $username, $password, $dbname);
-  if ($con->connect_error) {
-      die("Connection failed: " . $con->connect_error);
-  }else{
-    $get=mysqli_query($con,"SELECT categoria FROM Categoria");  
+    $con = new mysqli($servername, $username, $password, $dbname);
+    if ($con->connect_error) {
+        die("Connection failed: " . $con->connect_error);
+    }else{
+      $get=mysqli_query($con,"SELECT categoria FROM Categoria");  
   ?>  
   <div class="fondo">
   <div class="fondogradiente">
