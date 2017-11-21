@@ -68,6 +68,7 @@ exit;
 					<?php if ($band == 1){
 					$nombre = $_GET['restaurante'];
 					echo '
+					<li><a href="editar_perfil.php?user='.$nombre.'" class="yellow-text">Editar Perfil</a></li>
 					<li><a href="platos.php?user='.$nombre.'" class="yellow-text">Añadir Platos</a></li>
 					<li><a class="yellow-text">'.$nombre.'</a></li>
 					<li><a href="index.php?close=1" class="yellow-text">Cerrar Sesión</a></li>
@@ -98,19 +99,6 @@ exit;
 							<div class="row">
 							<div class="col s8">
 								<h4><?php echo $nombre; ?></h4>
-								<?php echo '<input type="text" value="'.$nombre.'">'; ?>
-							</div>
-							<div class="col s4">
-									  <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons">edit</i></a>
-									  <div id="modal1" class="modal">
-									    <div class="modal-content">
-									      <h4>Modal Header</h4>
-									      <p>A bunch of text</p>
-									    </div>
-									    <div class="modal-footer">
-									      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-									    </div>
-									  </div>
 							</div>
 							</div>
 							
