@@ -9,6 +9,7 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
+
 </head>
 <?php
 $servername = "localhost";
@@ -67,6 +68,7 @@ exit;
 					<?php if ($band == 1){
 					$nombre = $_GET['restaurante'];
 					echo '
+					<li><a href="editar_perfil.php?user='.$nombre.'" class="yellow-text">Editar Perfil</a></li>
 					<li><a href="platos.php?user='.$nombre.'" class="yellow-text">Añadir Platos</a></li>
 					<li><a class="yellow-text">'.$nombre.'</a></li>
 					<li><a href="index.php?close=1" class="yellow-text">Cerrar Sesión</a></li>
@@ -91,9 +93,14 @@ exit;
 			?> 
 			<div class="row">
 				<div class="col s12 jumbo">
-					<div class="col s6 rest_profile">
+					<div class="col s12 rest_profile">
 						<div class="col s6 datos">
-							<h4><?php echo $nombre; ?></h4>
+							<div class="row">
+							<div class="col s8">
+								<h4><?php echo $nombre; ?></h4>
+							</div>
+							</div>
+							
 							<p><?php echo $slogan; ?></p>
 							<div class="rate">
 							<img class="stars" src="img/stars.png" alt="">
