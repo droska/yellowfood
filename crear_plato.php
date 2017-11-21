@@ -3,13 +3,15 @@
   if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
   }else{
-  $user = $_GET['user'];
+  session_start();
+  if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+    $user = $_SESSION['username'];
+  }
   $pnombre = $_POST['pname'];
   $pdesc = $_POST['pdesc'];
   $precio = $_POST['precio'];
   $pcat = $_POST['pcat'];
   $band = 1;
-
   $imagenplato = $_POST['pimg'];
   $rutai = 'img/';
   $ruta = "".$rutai.$imagenplato;
@@ -52,16 +54,8 @@
         window.location = "platos.php?user='.$user.'"
       </script>';
     }else{
-      echo 
-      '<script type="text/javascript">
-      window.location = "platos.php?user='.$user.'"
-      </script>';
+      echo $pnombre." ".$pdesc." ".$precio." ".$ruta." ".$user." ".$rowcat;
     }
-  }else{
-    echo 
-    '<script type="text/javascript">
-    window.location = "platos.php?user='.$user.'"
-    </script>';
   }
   mysqli_close($con);
 } ?>
