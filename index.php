@@ -19,22 +19,29 @@
         <div class="nav-wrapper">
           <a href="index.php" class="brand-logo yellow-text">YellowFood</a>
           <a href="#" data-activates="mobile-demo" class="button-collapse yellow-text"><i class="material-icons">menu</i></a>
-         
         </div>
       </nav>
     </div>
 
   <?php
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "yellowfood";
-  $con = new mysqli($servername, $username, $password, $dbname);
-  if ($con->connect_error) {
-  die("Connection failed: " . $con->connect_error);
-  }else{
-  $get=mysqli_query($con,"SELECT nombre, descripcion FROM restaurante"); 
-  } 
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "yellowfood";
+    $con = new mysqli($servername, $username, $password, $dbname);
+    if ($con->connect_error) {
+      die("Connection failed: " . $con->connect_error);
+    }else{
+      $get=mysqli_query($con,"SELECT nombre, descripcion FROM restaurante"); 
+
+      if (isset($_GET['close']) && $_GET['close'] == true) {
+        session_start();
+        $close = $_GET['close']; 
+        session_destroy();
+        echo "Su sesion a terminado";   
+      }
+
+    } 
   ?> 
  
  
@@ -73,7 +80,6 @@
                  
         </div>
    </div>
-
   </div>
   <footer class="page-footer">
     <div class="container">

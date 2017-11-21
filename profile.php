@@ -22,11 +22,15 @@ die("Connection failed: " . $con->connect_error);
 $get=mysqli_query($con,"SELECT nombre, descripcion FROM restaurante"); 
 } 
 ?>
+
 <?php
+
 session_start();
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 	$band=1;
-} else {
+}else{
+	$band=0;
+}/*else {
    echo "Esta pagina es solo para usuarios registrados.<br>";
    echo "<br><a href='login.php'>Login</a>";
    echo "<br><br><a href='register.php'>Registrarme</a>";
@@ -37,7 +41,8 @@ if($now > $_SESSION['expire']) {
 session_destroy();
 echo "Su sesion a terminado";
 exit;
-}
+} */
+
 ?>
 
 	<body>
@@ -61,8 +66,11 @@ exit;
 					<ul class="right hide-on-med-and-down">
 					<?php if ($band == 1){
 					$nombre = $_GET['restaurante'];
-					echo '<li><a href="platos.php?user='.$nombre.'" class="yellow-text">Añadir Platos</a></li>
-					<li><a class="yellow-text">'.$nombre.'</a></li><li><img src="img/coca.jpg" alt="" class="circle mini"></li>';
+					echo '
+					<li><a href="platos.php?user='.$nombre.'" class="yellow-text">Añadir Platos</a></li>
+					<li><a class="yellow-text">'.$nombre.'</a></li>
+					<li><a href="index.php?close=1" class="yellow-text">Cerrar Sesión</a></li>
+					<li><img src="img/coca.jpg" alt="" class="circle mini"></li>';
 				    ?>
 					<?php }else{
 					echo '<li><a href="register.php" class="yellow-text">Registro</a></li>';
