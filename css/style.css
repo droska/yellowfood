@@ -45,7 +45,7 @@ div.error{
 	border-radius: 5%;
 }
 .titulod1{
-	margin-top: 130px;
+	margin-top: 5px;
 	margin-left: 50px;
 }
 .titulod2{
@@ -53,9 +53,36 @@ div.error{
 }
 .titulod3{
 	margin-left: 20px;
-	margin-top: 150px;
+	margin-top: 100px;
 }
+
+.t3{
+	font-size: 1.5em;
+	color: black;
+}
+
 .t1{
 	font-size: 1.5em;
 	color: black;
+}
+
+.imagenLogo{
+	width: 260%;
+}
+
+.Pa{
+	margin-left: 60px;
+	font-size: 1.5em;
+	color: black;
+}
+
+.Botones{
+	margin-left: 65px;
+	margin-left: 60px;
+}
+}
+
+.BotonVerRestaurantes{
+	margin-top: 30px;
+	margin-left: 100px;
 }
