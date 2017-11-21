@@ -8,8 +8,6 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <script src="js/jquery-3.2.1.min.js"></script>
-  <script src="js/init.js"></script>
 </head>
 
   <body>
@@ -109,5 +107,7 @@
   </footer>
   </div>
   </div>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/init.js"></script>
 </body>
 </html>
