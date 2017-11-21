@@ -11,7 +11,7 @@
   $band = 1;
 
   $imagenplato = $_POST['pimg'];
-  $rutai = 'img/';
+  $rutai = 'img/platos/';
   $ruta = "".$rutai.$imagenplato;
 
   //echo '<img src="'.$ruta.'" alt="">';

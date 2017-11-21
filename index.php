@@ -33,17 +33,14 @@
       die("Connection failed: " . $con->connect_error);
     }else{
       $get=mysqli_query($con,"SELECT nombre, descripcion FROM restaurante"); 
-
       if (isset($_GET['close']) && $_GET['close'] == true) {
         session_start();
         $close = $_GET['close']; 
         session_destroy();
         echo "Su sesion a terminado";   
       }
-
     } 
-  ?> 
- 
+  ?>
  
     <div class="row">
         <div class="col cuadrito1">
