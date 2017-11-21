@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	$('select').material_select();
+     $('.modal').modal();
 });
 
 $('.timepicker').pickatime({
@@ -13,3 +14,5 @@ $('.timepicker').pickatime({
     ampmclickable: true, // make AM PM clickable
     aftershow: function(){} //Function for after opening timepicker
   });
+
+ 

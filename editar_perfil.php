@@ -40,6 +40,10 @@
 					<?php if ($band == 1){
 					echo '<li><a href="platos.php?user='.$usuario.'" class="yellow-text">Añadir Platos</a></li>';
 					?>
+						
+					<?php if ($band == 1){
+					echo '<li><a href="platos.php?user='.$usuario.'" class="yellow-text">Añadir Platos</a></li>';
+					?>
 					<li><a href="index.php" class="yellow-text">Cerrar Sesión</a></li>
 					<?php }else{
 					echo '<li><a href="register.php" class="yellow-text">Registro</a></li>';
