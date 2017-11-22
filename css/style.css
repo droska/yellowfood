@@ -128,3 +128,7 @@ div.error{
 .profilepic{
 	width: 20%;
 }
+.btn{
+	background-color: #FFD600 !important;
+	color: #000 !important;
+}

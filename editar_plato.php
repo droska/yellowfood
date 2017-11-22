@@ -98,13 +98,16 @@ exit;
               </div>
               <div class="col s4">
                 <input name="precio" id="precio" class="validate" type="text" value="'.$precio.'">
-              </div>
+              </div>php
               <div class="col s2">
                 <a href="" class="btn">Editar</a>
               </div>
             </div>';
-        } 
+        }
+       /* mysqli_query($con,"UPDATE restaurante_plato set precio ='$msg1' where studentname='$studentname'");/* or die(mysql_error()); */
         ?>
+
+
 
   		</form>              
   		<?php } ?>
