@@ -35,8 +35,9 @@
         </div>
       </nav>
     </div>
-    <?php $get=mysqli_query($con,"SELECT * FROM restaurante WHERE nombre = '".$nombre."' ");  
+    <?php $get=mysqli_query($con,"SELECT * FROM restaurante WHERE usuario = '".$nombre."' ");  
 			while($row = mysqli_fetch_assoc($get)){
+
 				$email = $row['email'];
 				$contraseña = $row['password'];
 				$contraseña2 = $contraseña;
@@ -59,6 +60,7 @@
       <form action="actualizar_perfil.php" method="post" id="registro" name="registro">
         <div class="row">
           
+          <?php echo '<input name="realuser" id="realuser" type="hidden" value="'.$nombre.'">';?>
           <div class="input-field col s12 m6">
           <label for="username">Usuario</label>
           <?php echo '<input name="username" id="username" class="validate" type="text" value="'.$nombre.'">';?>

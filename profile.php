@@ -8,9 +8,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-
-
 </head>
+
 <?php
 $servername = "localhost";
 $username = "root";
@@ -18,9 +17,9 @@ $password = "";
 $dbname = "yellowfood";
 $con = new mysqli($servername, $username, $password, $dbname);
 if ($con->connect_error) {
-die("Connection failed: " . $con->connect_error);
+	die("Connection failed: " . $con->connect_error);
 }else{
-$get=mysqli_query($con,"SELECT nombre, descripcion FROM restaurante"); 
+	$get=mysqli_query($con,"SELECT nombre, descripcion FROM restaurante"); 
 } 
 ?>
 
@@ -44,10 +43,12 @@ echo "Su sesion a terminado";
 exit;
 } */
 
+$restaurante = $_GET['restaurante'];
+$nombre = $_GET['user'];
+
 ?>
 
 	<body>
-
 	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
@@ -66,12 +67,12 @@ exit;
 					<a href="#" data-activates="mobile-demo" class="button-collapse yellow-text"><i class="material-icons">menu</i></a>
 					<ul class="right hide-on-med-and-down">
 					<?php if ($band == 1){
-					$nombre = $_GET['restaurante'];
+
 					echo '
 					<li><a href="editar_perfil.php?user='.$nombre.'" class="yellow-text">Editar Perfil</a></li>
 					<li><a href="editar_plato.php?user='.$nombre.'" class="yellow-text">Editar Platos</a></li>
 					<li><a href="platos.php?user='.$nombre.'" class="yellow-text">Añadir Platos</a></li>
-					<li><a class="yellow-text">'.$nombre.'</a></li>
+					<li><a class="yellow-text">'.$restaurante.'</a></li>
 					<li><a href="index.php?close=1" class="yellow-text">Cerrar Sesión</a></li>
 					<li><img src="img/coca.jpg" alt="" class="circle mini"></li>';
 				    ?>
