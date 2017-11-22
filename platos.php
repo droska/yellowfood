@@ -54,7 +54,7 @@ exit;
     <div class="header">
       <nav>
         <div class="nav-wrapper">
-          <a href="index.php" class="brand-logo yellow-text">YellowFood</a>
+          <a href="index.php"><img src="img/logo.png" alt="" class="circle logo"></a>
           <a href="#" data-activates="mobile-demo" class="button-collapse yellow-text"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
             <?php if ($band == 1){

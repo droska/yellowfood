@@ -24,26 +24,12 @@ if ($con->connect_error) {
 ?>
 
 <?php
-
 session_start();
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 	$band=1;
 }else{
 	$band=0;
-}/*else {
-   echo "Esta pagina es solo para usuarios registrados.<br>";
-   echo "<br><a href='login.php'>Login</a>";
-   echo "<br><br><a href='register.php'>Registrarme</a>";
-exit;
 }
-$now = time();
-if($now > $_SESSION['expire']) {
-session_destroy();
-echo "Su sesion a terminado";
-exit;
-} */
-
-$restaurante = $_GET['restaurante'];
 if (isset($_GET['user']) && $_GET['user'] == true) {
 	$nombre = $_GET['user'];
 }else{
@@ -67,7 +53,7 @@ if (isset($_GET['user']) && $_GET['user'] == true) {
 		<div class="header">
 			<nav>
 				<div class="nav-wrapper">
-					<a href="index.php" class="brand-logo yellow-text">YellowFood</a>
+					<a href="index.php"><img src="img/logo.png" alt="" class="circle logo"></a>
 					<a href="#" data-activates="mobile-demo" class="button-collapse yellow-text"><i class="material-icons">menu</i></a>
 					<ul class="right hide-on-med-and-down">
 					<?php if ($band == 1){
@@ -77,11 +63,12 @@ if (isset($_GET['user']) && $_GET['user'] == true) {
 					<li><a href="editar_plato.php?user='.$nombre.'" class="yellow-text">Editar Platos</a></li>
 					<li><a href="platos.php?user='.$nombre.'" class="yellow-text">Añadir Platos</a></li>
 					<li><a class="yellow-text">'.$restaurante.'</a></li>
-					<li><a href="index.php?close=1" class="yellow-text">Cerrar Sesión</a></li>
+					<li><a href="logout.php" class="yellow-text">Cerrar Sesión</a></li>
 					<li><img src="img/coca.jpg" alt="" class="circle mini"></li>';
 				    ?>
 					<?php }else{
-					echo '<li><a href="register.php" class="yellow-text">Registro</a></li>';
+					echo '<li><a href="register.php" class="yellow-text">Registrarse</a></li>
+						<li><a href="login.php" class="yellow-text">Iniciar Sesion</a></li>';
 					}?>
 					</ul>
 				</div>
@@ -97,33 +84,18 @@ if (isset($_GET['user']) && $_GET['user'] == true) {
 				$horario = $row['horario'];
 			}
 			?> 
-			<div class="row">
-				<div class="col s12 jumbo">
-					<div class="col s12 rest_profile">
-						<div class="col s6 datos">
-							<div class="row">
-							<div class="col s8">
-								<h4><?php echo $nombre; ?></h4>
-							</div>
-							</div>
-							
-							<p><?php echo $slogan; ?></p>
-							<div class="rate">
-							<img class="stars" src="img/stars.png" alt="">
-							</div>
-							<p><?php 
-							if ($direccion != "") {
-								echo $direccion.'<br><a href="#">ver ubicación</a>';
-							}  	
-							?></p>
-							<p><?php echo $horario." "; ?>
-						</div>
-					<div class="col s2"></div>
-					</div>
+			<div class="row center vista">
+				<h3 class="yellow-text"><?php echo $nombre; ?></h3>		
+				<h5><?php echo $slogan; ?></h5>
+				<div class="rate">
+					<img class="stars" src="img/stars.png" alt="">
 				</div>
-			</div>
-
-			<div class="container">
+				<h6><?php 
+				if ($direccion != "") {
+					echo $direccion.'<br><a href="#">ver ubicación</a>';
+				}  	
+				?></h6>
+				<h6><?php echo $horario." "; ?></h6>
 				<?php 			
 					$getCat=mysqli_query($con,
 					"SELECT DISTINCT categoria_plato_id as cat, categoria_plato.nombre as cat_nom 
@@ -134,7 +106,7 @@ if (isset($_GET['user']) && $_GET['user'] == true) {
 					ON restaurante.id = restaurante_plato.restaurante_id
 					WHERE restaurante.nombre = '".$nombre."' ");
 						while($rowb = mysqli_fetch_assoc($getCat)){
-							echo $rowb['cat_nom'].'<br><br>'; 
+							echo '<div class="col s12 vista"><h5 class="center">'.$rowb['cat_nom'].'</h5></div>'; 
 							$var_cat = $rowb['cat_nom'];
 							$menu = mysqli_query($con,
 							"SELECT 
@@ -150,22 +122,30 @@ if (isset($_GET['user']) && $_GET['user'] == true) {
 							JOIN  categoria_plato 
 							ON    restaurante_plato.categoria_plato_id = categoria_plato.id
 							WHERE restaurante.nombre = '$nombre' AND categoria_plato.nombre = '$var_cat'");
+							$i=0;
 							while ($rowc = mysqli_fetch_assoc($menu)) {
-
+							if ($i%2==0){
+							    $p=0;
+							}else{
+							    $p=1;
+							}
+							echo '<div class="col s12 m6 platosvista'.$p.'">';
 							echo $rowc['Plato'].'<br>';
 							echo $rowc['Descripcion'].'<br>';
 							echo $rowc['Precio'].'<br>';
 							echo '<img class="img_plato" src="'.$rowc['foto'].'" alt=""><br><br>';
+							echo '</div>';
+							$i++;
 						}
+
 					}
 				?>
 			</div>
-			<div class="container">
-				<div class="fb-comments" data-href="http://localhost/yellowfood/" data-numposts="5"></div>
+			<div class="row center">
+			<div class="fb-comments vista" data-href="http://localhost/yellowfood/" data-numposts="5"></div>
 			</div>
 		</div>		
 	</div>
-	<br><br>
 	<footer class="page-footer">
 		<div class="container">
 			<div class="row">

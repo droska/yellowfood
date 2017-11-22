@@ -22,18 +22,17 @@
     <div class="header">
       <nav>
         <div class="nav-wrapper">
-          <a href="index.php" class="brand-logo yellow-text">YellowFood</a>
+          <a href="index.php"><img src="img/logo.png" alt="" class="circle logo"></a>
           <a href="#" data-activates="mobile-demo" class="button-collapse yellow-text"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="register.php" class="yellow-text">Registro</a></li>
-            <li><a href="login.php" class="yellow-text">Iniciar Sesion</a></li>
+            <li><a href="register.php" class="yellow-text">Registrarse</a></li>
           </ul>
         </div>
       </nav>
     </div>  
-    <div class="container cont">
+    <div class="container cont vista">
       <h1 class="yellow-text center">LOGIN</h1>
-      <form action="validator_log.php" method="post" id="login" name="login">
+      <form action="validator_log.php" method="post" id="login" name="login" >
         <div class="row">
         <div class="input-field col s12 m6">
           <input name="username" id="username" type="text" class="validate">

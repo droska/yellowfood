@@ -9,24 +9,6 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-
-  <body>
-  <div class="fondo">
-  <div class="fondogradiente">
-  <div class="contenido">
-    <div class="header">
-      <nav>
-        <div class="nav-wrapper">
-          <a href="index.php" class="brand-logo yellow-text">YellowFood</a>
-          <a href="#" data-activates="mobile-demo" class="button-collapse yellow-text"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="register.php" class="yellow-text">Registro</a></li>
-            <li><a href="login.php" class="yellow-text">Iniciar Sesion</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-
   <?php
   
     $servername = "localhost";
@@ -42,16 +24,47 @@
       $getcat=mysqli_query($con,"SELECT categoria FROM Categoria");  
     }
   ?>
+  <?php
+  session_start();
+  if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+    $band=1;
+    $user = $_SESSION['username'];
+  }
+  ?>
+  <body>
+  <div class="fondo">
+  <div class="fondogradiente">
+  <div class="contenido">
+    <div class="header">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="index.php"><img src="img/logo.png" alt="" class="circle logo"></a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse yellow-text"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <?php if ($band == 1){
 
-  <div class="container">
+          echo '
+          <li><a class="yellow-text">'.$user.'</a></li>
+          <li><a href="logout.php" class="yellow-text">Cerrar Sesión</a></li>
+          <li><img src="img/logo.png" alt="" class="circle mini"></li>';
+            ?>
+          <?php }else{
+          echo '<li><a href="register.php" class="yellow-text">Registrarse</a></li>
+            <li><a href="login.php" class="yellow-text">Iniciar Sesion</a></li>';
+          }?>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+  <div class="container cont">
     <h1 class="yellow-text center">Restaurantes</h1>
 
   <div class="container">
     
   <form action="search.php">
-    <div class="row busca">  
-      <div class="col s12 buscar-cat">
-        <div class="input-field col s8">
+    <div class="row s12 busca buscar-cat">  
+        <div class="input-field col s12 m4 offset-m3">
           <select name="categoria" id="categoria">
             <option value="">Categoria</option>
            <?php 
@@ -61,10 +74,10 @@
             ?>
           </select>
         </div>
-        <div class="col s4">
+        <div class="col s12 m4">
           <button class="btn boton-busca">Buscar</button>
         </div>
-      </div>
+
     </div>
   </form>  
    

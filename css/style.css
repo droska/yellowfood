@@ -22,32 +22,42 @@ div.error{
 }
 .cont{
 	padding: 0 20px 1px 20px;
-	background-color: white;
 	border-radius: 5px;
 	margin-top: 10px;
 }
-.cuadrito1{
-	padding-top: 200px;
+.cuadro{
 	background-color: rgba(255,255,255,0.5);
-	width: 45% !important;
-	height: 330px;
-	margin: 10px 10px 10px 10px;
-	margin-left: 25px;
-	margin-top: 200px;
-	border-radius: 5%;
+	margin-top: 50px;
+	border-top-left-radius: 5%;
+	border-bottom-left-radius: 5%;
+	height: 230px;
+	border-right: 2px solid yellow;	
 }
-.cuadrito2{
-	padding-top: 200px;
+.cuadro2{
 	background-color: rgba(255,255,255,0.5);
-	width: 48% !important;
-	height: 330px;
-	margin: 10px 10px 10px 10px;
-	margin-top: 200px;
-	border-radius: 5%;
+	margin-top: 50px;
+	border-top-right-radius: 5%;
+	border-bottom-right-radius: 5%;
+	height: 230px;
 }
-.titulod1{
-	margin-top: 5px;
-	margin-left: 50px;
+.vista{
+	background-color: rgba(255,255,255,0.5);
+	border-radius: 5px;
+	padding-top: 5px;
+}
+.platosvista0{
+	background-color: rgba(255,255,255,0.5);
+	border-radius: 5px;
+	border: 2px solid yellow;
+	padding-top: 5px;
+}
+.platosvista1{
+	background-color: rgba(255,255,255,0.5);
+	border-radius: 5px;
+	border-right: 2px solid yellow;
+	border-top: 2px solid yellow;
+	border-bottom: 2px solid yellow;
+	padding-top: 5px;
 }
 .titulod2{
 	margin-left: 100px;
@@ -93,5 +103,12 @@ div.error{
 	background-color: rgba(255,255,255);
 }
 .boton-busca{
-	margin-top: 15%;
+	margin-top: 21px;
+}
+.logo{
+	height: 200px;
+	width: 200px;
+	position: relative;
+	margin-top: -45px;
+	margin-left: -20px;
 }

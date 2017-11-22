@@ -30,16 +30,15 @@
     <div class="header">
       <nav>
         <div class="nav-wrapper">
-          <a href="index.php" class="brand-logo yellow-text">YellowFood</a>
+          <a href="index.php"><img src="img/logo.png" alt="" class="circle logo"></a>
           <a href="#" data-activates="mobile-demo" class="button-collapse yellow-text"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="register.php" class="yellow-text">Registro</a></li>
             <li><a href="login.php" class="yellow-text">Iniciar Sesion</a></li>
           </ul>
         </div>
       </nav>
     </div>
-    <div class="container cont">
+    <div class="container cont vista">
       <h1 class="yellow-text center">REGISTRO</h1>
       <form action="insert.php" method="post" id="registro" name="registro">
         <div class="row">
