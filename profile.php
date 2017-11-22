@@ -44,7 +44,11 @@ exit;
 } */
 
 $restaurante = $_GET['restaurante'];
-$nombre = $_GET['user'];
+if (isset($_GET['user']) && $_GET['user'] == true) {
+	$nombre = $_GET['user'];
+}else{
+	$band = 0;
+}
 
 ?>
 

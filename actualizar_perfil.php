@@ -43,7 +43,7 @@
     if(!mysqli_query($con, $sql)){
       echo 
       '<script type="text/javascript">
-        alert("Datos actualizados Exitosamente");
+        alert("Datos actualizados exitosamente, inicie sesión nuevamente para continuar");
       </script>';
       echo 
       '<script type="text/javascript">

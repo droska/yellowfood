@@ -34,7 +34,7 @@ session_start();
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
   $band=1;
   $user = $_SESSION['username'];
-} else {
+} /*else {
    echo "Esta pagina es solo para usuarios registrados.<br>";
    echo "<br><a href='login.php'>Login</a>";
    echo "<br><br><a href='register.php'>Registrarme</a>";
@@ -43,9 +43,9 @@ exit;
 $now = time();
 if($now > $_SESSION['expire']) {
 session_destroy();
-echo "Su sesión ha terminado";
+//echo "Su sesión ha terminado";
 exit;
-}
+}*/
 ?>
   
   <div class="fondo">
@@ -59,63 +59,58 @@ exit;
           <ul class="right hide-on-med-and-down">
             <?php if ($band == 1){
             echo '
-            <li><a href="profile.php?restaurante='.$usern.'&user='.$user.'" class="yellow-text">'.$user.'</a></li><li><img src="img/coca.jpg" alt="" class="circle mini"></li>';
+            <li>
+              <a href="profile.php?restaurante='.$usern.'&user='.$user.'" class="yellow-text">
+                '.$user.'
+              </a>
+            </li>
+            <li>
+              <img src="img/coca.jpg" alt="" class="circle mini">
+            </li>';
             }?>
           </ul>
         </div>
       </nav>
     </div>
     <div class="container cont">
-      <h1 class="yellow-text center">Editar Platos</h1>
-  		<?php echo '<form action="crear_plato.php?user='.$usern.'" method="post" id="plato" name="plato">'; ?>
-    		<div class="row">
-      		<div class="input-field col s12 m6">
-        		<input name="pname" id="pname" type="text" class="validate">
-            <label for="pname">Nombre</label>
-              
-      		</div>
-          <div class="input-field col s12 m6">
-            <input name="precio" id="precio" type="text" class="validate">
-            <label for="precio">Precio</label>
-          </div>
-    		</div>       
-    		<div class="row">
-          <div class="file-field input-field col s12 m6">
-            <div class="btn">
-              <span>Fotografía del plato</span>
-              <input type="file">
-            </div>
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" multiple multiple onchange="ruta()" name="pimg" id="pimg">
-            </div>
-          </div>
-          <div class="input-field col s12 m6">
-            <select name="pcat" id="pcat" required>
-            <option value="">Categoría</option>
-              <?php
-              while($row = mysqli_fetch_assoc($get)){
-                echo '<option value="'.$row['nombre'].'">'.$row['nombre'].'</option>';
-              } 
-              ?> 
-            </select>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input name="pdesc" id="pdesc" type="text" class="validate">
-            <label for="pdesc">Descripción</label>
-          </div>
-        </div>
-      		
-    		<div class="row center">
-      		<div class="boton">
-      		  <button class="btn">Editar</button>
-      		</div>
-    		</div>  
+      <h1 class="yellow-text center">Actualizar Precios</h1>
+  		<?php echo '<form action="actualizar_plato.php?user='.$usern.'" method="post" id="plato" name="plato">'; ?>
+    		
+        <?php 
+
+        $sql=mysqli_query($con,"SELECT id FROM restaurante WHERE usuario = '".$usern."'");
+          while($row = mysqli_fetch_assoc($sql)){
+          $resid = $row['id'];
+        } 
+
+        $sql=mysqli_query($con,"
+          SELECT * FROM restaurante_plato 
+          WHERE restaurante_id = '".$resid."'ORDER BY 2 ASC");
+
+          while($row = mysqli_fetch_assoc($sql)){
+          $nombre = $row['Nombre'];
+          $precio = $row['Precio'];
+
+          echo '
+            <div class="row">
+              <div class="col s6">
+                <h5>'.$nombre.'</h5>
+              </div>
+              <div class="col s4">
+                <input name="precio" id="precio" class="validate" type="text" value="'.$precio.'">
+              </div>
+              <div class="col s2">
+                <a href="" class="btn">Editar</a>
+              </div>
+            </div>';
+        } 
+        ?>
+
   		</form>              
   		<?php } ?>
   	</div>
-  </div>      
+  </div>     
+  <br><br> 
   <footer class="page-footer">
     <div class="container">
       <div class="row">
