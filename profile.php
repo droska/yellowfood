@@ -62,7 +62,7 @@ if (isset($_GET['user']) && $_GET['user'] == true) {
 					<li><a href="editar_perfil.php?user='.$nombre.'" class="yellow-text">Editar Perfil</a></li>
 					<li><a href="editar_plato.php?user='.$nombre.'" class="yellow-text">Editar Platos</a></li>
 					<li><a href="platos.php?user='.$nombre.'" class="yellow-text">Añadir Platos</a></li>
-					<li><a class="yellow-text">'.$restaurante.'</a></li>
+					<!-- <li><a class="yellow-text">'./*$restaurante.*/'</a></li> -->
 					<li><a href="logout.php" class="yellow-text">Cerrar Sesión</a></li>
 					<li><img src="img/coca.jpg" alt="" class="circle mini"></li>';
 				    ?>
@@ -79,20 +79,25 @@ if (isset($_GET['user']) && $_GET['user'] == true) {
 			$nombre = $_GET['restaurante'];
 			$get=mysqli_query($con,"SELECT * FROM restaurante WHERE nombre = '".$nombre."' ");  
 			while($row = mysqli_fetch_assoc($get)){
-				$slogan    = $row['descripcion'];  
-				$direccion = $row['ubicacion'];
-				$horario = $row['horario'];
+				$slogan     = $row['descripcion'];  
+				$direccion  = $row['ubicacion'];
+				$horario    = $row['horario'];
+				$fotoperfil = $row['profilepic'];
 			}
 			?> 
 			<div class="row center vista">
 				<h3 class="yellow-text"><?php echo $nombre; ?></h3>		
-				<h5><?php echo $slogan; ?></h5>
-				<div class="rate">
+				<h5><?php echo $slogan; ?></h5>	
+				<?php echo '<img src="'.$fotoperfil.'" alt="" class="profilepic">' ?> 
+				<!--<div class="rate">
 					<img class="stars" src="img/stars.png" alt="">
-				</div>
+				</div> -->
 				<h6><?php 
 				if ($direccion != "") {
-					echo $direccion.'<br><a href="#">ver ubicación</a>';
+					echo $direccion.'<br>
+					<a href="https://www.google.co.ve/maps/place/'.$direccion.' " target="_blank">
+						ver ubicación
+					</a>';
 				}  	
 				?></h6>
 				<h6><?php echo $horario." "; ?></h6>

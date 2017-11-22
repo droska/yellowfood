@@ -23,7 +23,7 @@ $(function() {
       pname:{
         required: true,
         minlength: 2,
-        maxlength: 16,
+        maxlength: 32,
         nom: true
       },
       pdesc:{
@@ -42,8 +42,8 @@ $(function() {
     messages: {
       pname:{
         required: "Debe introducir el nombre de usuario",
-        minlength: "Debe contener entre 2 y 16 caracteres",
-        maxlength: "Debe contener entre 2 y 16 caracteres",
+        minlength: "Debe contener entre 2 y 32 caracteres",
+        maxlength: "Debe contener entre 2 y 32 caracteres",
         nom: "El nombre solo puede estar compuesto por letras y numeros"
       },
       pdesc:{

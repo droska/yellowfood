@@ -44,6 +44,13 @@ session_start();
 			$_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
 			echo "Bienvenido! " . $_SESSION['username'];
 			header("Location: profile.php?restaurante=$restname&user=$userin");
+		}else{
+			echo '<script type="text/javascript">
+			alert("Usuario o contraseña invalido");
+			</script>';
+			echo '<script type="text/javascript">
+			window.location = "login.php"
+			</script>';
 		}
 	}
 	mysqli_close($con); 

@@ -15,7 +15,11 @@
   $horarioa= $_POST["horarioa"];
   $horariob= $_POST["horariob"];
   $horario = $horarioa."-".$horariob;
+  $ruta = 'img/perfiles/';
+  $profilepic = $_POST['profilepic'];
   $band = 1;
+  $fotoperfil = "".$ruta.$profilepic;
+
 
   if((strlen($username)< 2) || (strlen($username)>16)){
     $band = 0;
@@ -113,8 +117,8 @@
     while($row = mysqli_fetch_assoc($get)){
       $catid = $row['id'];  
     } 
-    $sql = "INSERT INTO restaurante (usuario, password, email, nombre, descripcion, categoria_id, rif, ubicacion, horario) 
-    VALUES ('$username', '$password', '$email', '$restname', '$restdesc', '$catid', '$rif1','$ubicacion','$horario')";
+    $sql = "INSERT INTO restaurante (usuario, password, email, nombre, descripcion, categoria_id, rif, ubicacion, horario, profilepic) 
+    VALUES ('$username', '$password', '$email', '$restname', '$restdesc', '$catid', '$rif1','$ubicacion','$horario','$fotoperfil')";
     if(mysqli_query($con, $sql)){
       echo '<script type="text/javascript">
       alert("Usted se ha registrado de manera exitosa.");

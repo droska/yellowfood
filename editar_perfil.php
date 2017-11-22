@@ -37,7 +37,6 @@
     </div>
     <?php $get=mysqli_query($con,"SELECT * FROM restaurante WHERE usuario = '".$nombre."' ");  
 			while($row = mysqli_fetch_assoc($get)){
-
 				$email = $row['email'];
 				$contraseña = $row['password'];
 				$contraseña2 = $contraseña;
@@ -47,6 +46,7 @@
 				$direccion = $row['ubicacion'];
 				$horario = $row['horario'];
 				$id_cat = $row['categoria_id'];
+        $profilepic = $row['profilepic'];
 			}
 			 $getCATp=mysqli_query($con,"SELECT categoria FROM Categoria WHERE id = '".$id_cat."'");
 			  while($row = mysqli_fetch_assoc($getCATp)){
@@ -94,7 +94,7 @@
 
           <div class="input-field col s12 m6">
           <label for="password">Nombre del Restaurante</label>
-          <?php echo '<input name="restname" id="restname"  type="text" value="'.$restname.'">';?>
+          <?php echo '<input class="black_border" name="restname" id="restname"  type="text" value="'.$restname.'">';?>
           </div>
         </div>
 
@@ -109,7 +109,7 @@
          
           <div class="input-field col s12 m4">
             <label for="horariob">Horario</label>
-            <?php echo '<input name="horario" type="text" value="'.$horario.'">';?>
+            <?php echo '<input class="black_border" name="horario" type="text" value="'.$horario.'">';?>
           </div>
          
           <div class="input-field col s12 m4">
@@ -125,10 +125,22 @@
         </div>
         <div class="row">
           
-          <div class="input-field col s12">
+          <div class="input-field col s12 m6">
           <label for="restdesc">Descripción</label>
           <?php echo '<input name="restdesc" id="restdesc" class="validate" type="text" value="'.$slogan.'">';?>
           </div>
+
+          <div class="file-field input-field col s12 m6">
+            <div class="btn">
+              <span>Foto de Perfil</span>
+              <input type="file">
+            </div>
+            <div class="file-path-wrapper">
+              <?php echo '
+              <input class="file-path validate" type="text" multiple multiple onchange="ruta()" name="profilepic" id="profilepic" value="'.$profilepic.'">'; ?>
+            </div>
+          </div>
+
         </div>
         <div class="row center">
           <div class="boton">
@@ -139,6 +151,7 @@
     </div>                
    
   </div>
+  <br><br>
   <footer class="page-footer">
     <div class="container">
       <div class="row">
@@ -170,6 +183,7 @@
   </footer>
   </div>
   </div>
+
   <script src="js/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript" src="js/jquery.validate.min.js"></script>

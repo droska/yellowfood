@@ -106,9 +106,25 @@ div.error{
 	margin-top: 21px;
 }
 .logo{
-	height: 200px;
-	width: 200px;
+	height: 55px;
+	width: 55px;
 	position: relative;
-	margin-top: -45px;
-	margin-left: -20px;
+	margin-top: 5px;
+	margin-left: 20px;
+}
+.img_plato{
+	width: 275px;
+	height: 183px;
+}
+.validate{
+	border-bottom: 1px solid black !important;
+}
+.black_border{	
+	border-bottom: 1px solid black !important;
+}
+.input-field label{
+	color: #000 !important;
+}
+.profilepic{
+	width: 20%;
 }

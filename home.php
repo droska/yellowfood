@@ -29,6 +29,8 @@
   if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     $band=1;
     $user = $_SESSION['username'];
+  }else{
+    $band = 0;
   }
   ?>
   <body>

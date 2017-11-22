@@ -98,10 +98,21 @@
           </div>
         </div>
         <div class="row">
-          <div class="input-field col s12">
+          <div class="input-field col s12 m6">
           <input name="restdesc" id="restdesc" type="text" class="validate">
           <label for="restdesc">Descripción</label>
           </div>
+          
+          <div class="file-field input-field col s12 m6">
+            <div class="btn">
+              <span>Foto de Perfil</span>
+              <input type="file">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text" multiple multiple onchange="ruta()" name="profilepic" id="profilepic">
+            </div>
+          </div>
+
         </div>
         <div class="row center">
           <div class="boton">
@@ -112,6 +123,7 @@
     </div>                
     <?php } ?>
   </div>
+  <br><br>
   <footer class="page-footer">
     <div class="container">
       <div class="row">

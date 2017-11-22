@@ -4,17 +4,19 @@
     die("Connection failed: " . $con->connect_error);
   }else{
 
-  $realuser = $_POST['realuser'];
-  $username = strtolower($_POST["username"]); 
-  $password = $_POST["password"];
-  $email = $_POST["email"];
-  $restname = $_POST["restname"];
-  $restdesc = $_POST["restdesc"];
-  $categoria = $_POST["categoria"];
-  $rif = $_POST["rif"]; 
-  $rif1 = substr($rif, 2, 11);
-  $ubicacion = $_POST["ubicacion"];
-  $horario= $_POST["horario"];
+  $realuser   = $_POST['realuser'];
+  $username   = strtolower($_POST["username"]); 
+  $password   = $_POST["password"];
+  $email      = $_POST["email"];
+  $restname   = $_POST["restname"];
+  $restdesc   = $_POST["restdesc"];
+  $categoria  = $_POST["categoria"];
+  $rif        = $_POST["rif"]; 
+  $rif1       = substr($rif, 2, 11);
+  $ubicacion  = $_POST["ubicacion"];
+  $horario    = $_POST["horario"];
+  $ruta = $_POST["profilepic"];
+  $profilepic = 'img/perfiles/'.$ruta;
   $band = 1;
 
    $getCATp=mysqli_query($con,"SELECT id FROM Categoria WHERE categoria = '".$categoria."'");
@@ -37,7 +39,8 @@
     categoria_id = '".$catid."',
     rif          = '".$rif1."',
     ubicacion    = '".$ubicacion."',
-    horario      = '".$horario."' 
+    horario      = '".$horario."',
+    profilepic   = '".$profilepic."' 
     WHERE id     = '".$restid."'");
 
     if(!mysqli_query($con, $sql)){

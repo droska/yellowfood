@@ -21,7 +21,7 @@
   if(!preg_match('`^[A-Za-z0-9 ]*$`', $pnombre)){
     $band = 0;     
   }
-  if((strlen($pnombre)< 2) || (strlen($pnombre)>16)){
+  if((strlen($pnombre)< 2) || (strlen($pnombre)>32)){
     $band = 0;     
   }
   if((strlen($pdesc)> 100)){
